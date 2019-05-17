@@ -10,6 +10,28 @@
   border: 0.3rem solid #121212;
 }
 
+.text-center {
+  text-align: center
+}
+
+.hidden {
+  display: none;
+}
+
+.button-list {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.table-hr {
+  margin: 0;
+}
+
+.table-h2 {
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+}
+
 header, footer {
   text-align: center;
 }

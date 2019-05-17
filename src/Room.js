@@ -1,5 +1,5 @@
 /** @jsx h */
-import { h, Fragment } from 'preact'
+import { h } from 'preact'
 import { useState, useEffect } from 'preact/hooks'
 import ky from 'ky'
 
@@ -52,18 +52,15 @@ function Room ({ name }) {
   }
 
   return (
-    <Fragment>
-      <p class='row rooms'>
-        <span class='column'>
-          {emoji}
-          <strong>{' '}{name.toUpperCase()}</strong>
-        </span>
-        <span class='column text-right'>
-          {occupancy}
-        </span>
-      </p>
-      <hr />
-    </Fragment>
+    <tr>
+      <td>
+        {emoji}
+        <strong>{' '}{name.toUpperCase()}</strong>
+      </td>
+      <td class='text-right'>
+        {occupancy}
+      </td>
+    </tr>
   )
 }
 
