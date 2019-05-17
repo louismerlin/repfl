@@ -1,11 +1,23 @@
+.container {
+  max-width: 64rem;
+}
+
+.rooms {
+  align-items: center;
+}
+
+.title {
+  border: 0.3rem solid #121212;
+}
+
 header, footer {
   text-align: center;
 }
 
-.float-right {
-  float: right;
+.text-right {
+  text-align: right;
 }
 
 .less-margin {
-  margin: 0.4rem;
+  margin: 0.4rem 0;
 }

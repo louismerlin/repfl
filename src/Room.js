@@ -36,11 +36,15 @@ function Room ({ name }) {
 
   return (
     <Fragment>
-      <h4>
-        {occupancy === 'loading' ? '🙃' : (occupancy ? '⛔ ' : '👍 ')}
-        {name.toUpperCase()}
-        <span class='float-right'>{occupancy}</span>
-      </h4>
+      <p class='row rooms'>
+        <span class='column'>
+          {occupancy === 'loading' ? '🙃' : (occupancy ? '⛔ ' : '👍 ')}
+          <strong>{name.toUpperCase()}</strong>
+        </span>
+        <span class='column text-right'>
+          {occupancy}
+        </span>
+      </p>
       <hr />
     </Fragment>
   )

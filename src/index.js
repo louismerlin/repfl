@@ -11,8 +11,8 @@ function Main () {
     <main class='container'>
 
       <header>
-        <h1 class='less-margin'>rEPFL</h1>
-        <h2 class='less-margin'>Find a free room @ EPFL</h2>
+        <h1 class='less-margin title'>rEPFL</h1>
+        <h3 class='less-margin'>Find a free room @ EPFL</h3>
       </header>
 
       <hr />
