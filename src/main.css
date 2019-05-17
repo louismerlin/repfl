@@ -1,0 +1,11 @@
+header, footer {
+  text-align: center;
+}
+
+.float-right {
+  float: right;
+}
+
+.less-margin {
+  margin: 0.4rem;
+}

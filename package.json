@@ -1,0 +1,27 @@
+{
+  "name": "repfl",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "homepage": "https://louismerlin.github.io/repfl",
+  "dependencies": {
+    "concrete.css": "^1.0.1",
+    "ky": "^0.11.0",
+    "normalize.css": "^8.0.1",
+    "preact": "^10.0.0-beta.1"
+  },
+  "scripts": {
+    "start": "parcel src/index.html --port 3000 --hmr-port 1234",
+    "lint": "standard --fix",
+    "predeploy": "parcel build --public-url ./ src/index.html",
+    "deploy": "gh-pages -d dist"
+  },
+  "browserslist": [
+    "last 2 Chrome versions"
+  ],
+  "devDependencies": {
+    "gh-pages": "^2.0.1",
+    "parcel-bundler": "^1.12.3",
+    "standard": "^12.0.1"
+  }
+}
