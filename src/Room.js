@@ -44,7 +44,7 @@ function Room ({ name }) {
 
   let emoji = '👍 '
   if (occupancy === 'loading') {
-    emoji = '🙃'
+    emoji = '🔄'
   } else if (occupancy === 'occupied soon') {
     emoji = '⏳'
   } else if (occupancy) {
