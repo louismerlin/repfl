@@ -59,7 +59,7 @@ function Room ({ name }) {
       <td>
         <strong>{' '}{name.toUpperCase()}</strong>
       </td>
-      <td class='text-right'>
+      <td class='text-right fullwidth'>
         {occupancy}
       </td>
     </tr>

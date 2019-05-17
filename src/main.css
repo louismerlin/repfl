@@ -32,6 +32,14 @@
   margin-bottom: 1rem;
 }
 
+.fullwidth {
+  min-width: 100%;
+}
+
+td {
+  padding-right: 0.5rem;
+}
+
 header, footer {
   text-align: center;
 }
