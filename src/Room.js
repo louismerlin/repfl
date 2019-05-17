@@ -55,6 +55,8 @@ function Room ({ name }) {
     <tr>
       <td>
         {emoji}
+      </td>
+      <td>
         <strong>{' '}{name.toUpperCase()}</strong>
       </td>
       <td class='text-right'>
