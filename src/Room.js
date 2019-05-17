@@ -28,18 +28,35 @@ function Room ({ name }) {
         return now > startDate && now < endDate
       })
 
-      setOccupancy(currentEvent && currentEvent.Text)
+      const nextEvent = parsedRoomOccupancy.find(({ Start, End }) => {
+        const soon1 = new Date(Date.now() + 45 * 60 * 1000)
+        const soon2 = new Date(Date.now() + 60 * 60 * 1000)
+        const startDate = new Date(Start)
+        const endDate = new Date(End)
+        return (soon1 > startDate && soon2 < endDate) || (soon2 > startDate && soon2 < endDate)
+      })
+
+      setOccupancy(currentEvent ? currentEvent.Text : (nextEvent && 'occupied soon'))
     }
 
     getRoomOccupancy()
   }, [])
 
+  let emoji = '👍 '
+  if (occupancy === 'loading') {
+    emoji = '🙃'
+  } else if (occupancy === 'occupied soon') {
+    emoji = '⏳'
+  } else if (occupancy) {
+    emoji = '⛔'
+  }
+
   return (
     <Fragment>
       <p class='row rooms'>
         <span class='column'>
-          {occupancy === 'loading' ? '🙃' : (occupancy ? '⛔ ' : '👍 ')}
-          <strong>{name.toUpperCase()}</strong>
+          {emoji}
+          <strong>{' '}{name.toUpperCase()}</strong>
         </span>
         <span class='column text-right'>
           {occupancy}

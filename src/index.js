@@ -21,7 +21,7 @@ function Main () {
 
       <footer>
         <h5 class='less-margin'>Made with {'<3'} by <a href='https://louismerl.in'>Louis Merlin</a></h5>
-        <h5 class='less-margin'>Need more rooms ? <a href='mailto:louis.merlin@epfl.ch'>email me</a></h5>
+        <h5 class='less-margin'>Need more rooms ? <a href='https://github.com/louismerlin/repfl/blob/master/src/ROOMS.json'>Add them</a> or <a href='mailto:louis.merlin@epfl.ch'>email me</a></h5>
       </footer>
 
     </main>
