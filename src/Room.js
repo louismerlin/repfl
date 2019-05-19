@@ -3,12 +3,14 @@ import { h } from 'preact'
 import { useState, useEffect } from 'preact/hooks'
 import ky from 'ky'
 
+const CORS_URL = 'https://cors.louismerl.in'
+
 function Room ({ name }) {
   const [occupancy, setOccupancy] = useState('loading')
 
   useEffect(() => {
     async function getRoomOccupancy () {
-      const roomOccupancy = await ky.get(`https://cors-anywhere.herokuapp.com/https://ewa.epfl.ch/room/Default.aspx?room=${name}`).text()
+      const roomOccupancy = await ky.get(`${CORS_URL}/https://ewa.epfl.ch/room/Default.aspx?room=${name}`).text()
 
       const parsedRoomOccupancy = JSON.parse(
         roomOccupancy
