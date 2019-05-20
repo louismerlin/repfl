@@ -10,18 +10,19 @@ function Room ({ name }) {
 
   useEffect(() => {
     async function getRoomOccupancy () {
-      const roomOccupancy = await ky.get(`${CORS_URL}/https://ewa.epfl.ch/room/Default.aspx?room=${name}`).text()
+      const res = await ky.get(`${CORS_URL}/https://ewa.epfl.ch/room/Default.aspx?room=${name}`).text()
 
-      const parsedRoomOccupancy = JSON.parse(
-        roomOccupancy
-          .split('\n')
-          .find(x => x.includes('v.events'))
-          .replace('v.events = ', '')
-          .replace(/;/g, '')
-          .replace(/<br>/g, '')
-          .replace(/ISA - /g, '')
-          .replace(/\\/g, '')
-      )
+      const roomOccupancy = res
+        .split('\n')
+        .find(x => x.includes('v.events'))
+        .replace('v.events = ', '')
+        .replace(/;/g, '')
+        .replace(/\\"/g, '')
+        .replace(/<br>/g, '')
+        .replace(/ISA - /g, '')
+        .replace(/\\/g, '')
+
+      const parsedRoomOccupancy = JSON.parse(roomOccupancy)
 
       const currentEvent = parsedRoomOccupancy.find(({ Start, End }) => {
         const now = new Date()
