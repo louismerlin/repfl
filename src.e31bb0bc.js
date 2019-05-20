@@ -1165,7 +1165,7 @@ module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
 },{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"rooms.json":[function(require,module,exports) {
 module.exports = {
-  "in": ["inm10", "inm11", "inm200", "inm201", "inm202", "inm203", "inr113", "inf211", "inf213", "inf1", "inf2", "inf3"],
+  "in": ["inm10", "inm11", "inm200", "inm201", "inm202", "inm203", "inr113", "inr219", "inf119", "inf211", "inf213", "inf1", "inf2", "inf3", "inj218"],
   "bc": ["bc01", "bc02", "bc03", "bc04", "bc05", "bc06", "bc010", "bc129", "bc229", "bc329", "bc410", "bc420"],
   "co": ["co020", "co021", "co023"]
 };
