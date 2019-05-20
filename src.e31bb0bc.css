@@ -628,7 +628,7 @@ td {
   padding-right: 0.5rem;
 }
 
-header, footer {
+.header, .footer {
   text-align: center;
 }
 
@@ -638,6 +638,11 @@ header, footer {
 
 .less-margin {
   margin: 0.4rem 0;
+}
+
+.footer {
+  text-align: center;
+  margin: 8rem 0 2rem 0;
 }
 
 /*# sourceMappingURL=/src.e31bb0bc.css.map */

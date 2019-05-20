@@ -1195,7 +1195,9 @@ function Main() {
   const [selectedBuilding, setSelectedBuilding] = (0, _hooks.useState)('all');
   return (0, _preact.h)("main", {
     class: "container"
-  }, (0, _preact.h)("header", null, (0, _preact.h)("h1", {
+  }, (0, _preact.h)("header", {
+    class: "header"
+  }, (0, _preact.h)("h1", {
     class: "less-margin title"
   }, "rEPFL"), (0, _preact.h)("h3", {
     class: "less-margin"
@@ -1205,7 +1207,7 @@ function Main() {
     onClick: () => setSelectedBuilding(building),
     class: selectedBuilding === building ? 'filled' : ''
   }, building.toUpperCase()), ' '))), buildings.map(building => (0, _preact.h)("div", {
-    className: selectedBuilding !== 'all' && selectedBuilding !== building && 'hidden'
+    class: selectedBuilding !== 'all' && selectedBuilding !== building && 'hidden'
   }, (0, _preact.h)("h2", {
     class: "text-center table-h2"
   }, building.toUpperCase()), (0, _preact.h)("hr", {
@@ -1213,9 +1215,11 @@ function Main() {
   }), (0, _preact.h)("table", null, (0, _preact.h)("tbody", null, _rooms.default[building].map(room => (0, _preact.h)(_Room.default, {
     key: room,
     name: room
-  })))))), (0, _preact.h)("footer", null, (0, _preact.h)("h5", {
+  })))))), (0, _preact.h)("footer", {
+    class: "footer"
+  }, (0, _preact.h)("hr", null), (0, _preact.h)("h5", {
     class: "less-margin"
-  }, "made with ", '<3', " by ", (0, _preact.h)("a", {
+  }, "made with \u2764\uFE0F by ", (0, _preact.h)("a", {
     href: "https://louismerl.in"
   }, "Louis Merlin")), (0, _preact.h)("h5", {
     class: "less-margin"
