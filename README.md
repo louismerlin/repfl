@@ -5,20 +5,22 @@ Find a free room @ EPFL
 
 Pull requests are welcome !
 
+Thank you to [@baraschi](https://github.com/baraschi) and [@Jmion](https://github.com/Jmion) for their contributions :smile:
+
 ## Launching
 
-In order to launch a development version of this project, you must have [docker](https://docker.com) installed.
+In order to launch a development version of this project, you must have **[docker](https://docker.com)** installed.
 
-Then, just run:
+**:wrench: Build**
 
 ```
 make
 ```
 
-to build the project, and
+**:rocket: Launch**
 
 ```
 make start
 ```
 
-to start the development server. You can now go to [localhost:3000](http://localhost:3000) to see the page.
+You can now go to [localhost:3000](http://localhost:3000) to see the page.
