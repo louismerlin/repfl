@@ -83,7 +83,7 @@ function Room ({ name }) {
       </td>
       <td>
         <strong>
-          <a href={`${ROOM_URL}${name}`}>
+          <a target="_blank" href={`${ROOM_URL}${name}`}>
             {name.toUpperCase()}
           </a>
         </strong>
