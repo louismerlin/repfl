@@ -57,3 +57,9 @@ td {
   text-align: center;
   margin: 8rem 0 2rem 0;
 }
+
+@media (prefers-color-scheme: dark) {
+  .title {
+    border-color: white;
+  }
+}

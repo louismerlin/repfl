@@ -1490,10 +1490,10 @@ concat-stream@~1.6.0:
     readable-stream "^2.2.2"
     typedarray "^0.0.6"
 
-concrete.css@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/concrete.css/-/concrete.css-1.0.1.tgz#a24f99c70fcb9eb42ee44b2910e8f4c7bd946ef2"
-  integrity sha512-tNabhkrhtaK4cgiTVrhEa9FTEPUxAcz7+lxA+9G2ip9oVyMOnneWr7sq5+7QSYWg9l+bUhUuAvf2auQKOWVhhA==
+concrete.css@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/concrete.css/-/concrete.css-1.1.0.tgz#01baac1064b5cda1ff1bc9797c0f03b0afd148a9"
+  integrity sha512-RCohIlOaeya8f9Towc6BgUf1OmbDeu9XQj+RWQzO5F27bVPaou5q/QSrYOesZCr1yaVr74+gi8kuevN+nm/I8w==
 
 config-chain@^1.1.12:
   version "1.1.12"

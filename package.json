@@ -5,7 +5,7 @@
   "private": true,
   "homepage": "https://repfl.ch",
   "dependencies": {
-    "concrete.css": "^1.0.1",
+    "concrete.css": "^1.1.0",
     "ky": "^0.11.0",
     "normalize.css": "^8.0.1",
     "preact": "^10.0.0-beta.1"
