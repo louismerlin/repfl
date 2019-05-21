@@ -4,9 +4,10 @@ import { useState, useEffect } from 'preact/hooks'
 import ky from 'ky'
 
 const CORS_URL = 'https://cors.louismerl.in'
+const DATE_FORMATTER = new Intl.DateTimeFormat('ch-fr', {hour: '2-digit', minute: '2-digit'}).format;
 
 function Room ({ name }) {
-  const [occupancy, setOccupancy] = useState('loading')
+  const [occupancy, setOccupancy] = useState({ text: 'loading', isFree: false, occupiedSoon: false})
 
   useEffect(() => {
     async function getRoomOccupancy () {
@@ -23,36 +24,38 @@ function Room ({ name }) {
         .replace(/\\/g, '')
 
       const parsedRoomOccupancy = JSON.parse(roomOccupancy)
+      const now = new Date()
 
       const currentEvent = parsedRoomOccupancy.find(({ Start, End }) => {
-        const now = new Date()
         const startDate = new Date(Start)
         const endDate = new Date(End)
         return now > startDate && now < endDate
       })
-
-      const nextEvent = parsedRoomOccupancy.find(({ Start, End }) => {
-        const soon1 = new Date(Date.now() + 45 * 60 * 1000)
-        const soon2 = new Date(Date.now() + 60 * 60 * 1000)
+      const oneDay = new Date(now.getTime() + 24 * 60 * 60 * 1000)
+      const nextEvent = parsedRoomOccupancy.find(({ Start }) => {
         const startDate = new Date(Start)
-        const endDate = new Date(End)
-        return (soon1 > startDate && soon2 < endDate) || (soon2 > startDate && soon2 < endDate)
+        return now < startDate && startDate < oneDay
       })
+      const nextEventStart = nextEvent ? new Date(nextEvent.Start) : null
 
-      setOccupancy(currentEvent ? currentEvent.Text : (nextEvent && 'occupied soon'))
+      const isOccupiedSoon = nextEventStart ? nextEventStart.getTime() - now.getTime() <= 60 * 60 * 1000 : false
+      const isFree = currentEvent == null
+      const text = isFree && nextEvent ? `available until ${DATE_FORMATTER(nextEventStart)}` : currentEvent && currentEvent.Text
+
+      setOccupancy({ text, isFree, isOccupiedSoon })
     }
 
     getRoomOccupancy()
   }, [])
 
   let emoji = '👍 '
-  if (occupancy === 'loading') {
+  if (occupancy.text === 'loading') {
     emoji = '🔄'
-  } else if (occupancy === 'occupied soon') {
-    emoji = '⏳'
-  } else if (occupancy) {
+  }else if (!occupancy.isFree) {
     emoji = '⛔'
-  }
+  } else if (occupancy.isOccupiedSoon) {
+    emoji = '⏳'
+  } 
 
   return (
     <tr>
@@ -63,7 +66,7 @@ function Room ({ name }) {
         <strong>{' '}{name.toUpperCase()}</strong>
       </td>
       <td class='text-right fullwidth'>
-        {occupancy}
+        {occupancy.text}
       </td>
     </tr>
   )
