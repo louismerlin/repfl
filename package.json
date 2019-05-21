@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
-  "homepage": "https://louismerlin.github.io/repfl",
+  "homepage": "https://repfl.ch",
   "dependencies": {
     "concrete.css": "^1.0.1",
     "ky": "^0.11.0",
