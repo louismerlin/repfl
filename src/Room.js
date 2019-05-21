@@ -82,7 +82,12 @@ function Room ({ name }) {
         {emoji}
       </td>
       <td>
-        <strong>{' '}{name.toUpperCase()}</strong>
+        <strong>
+          {' '}
+          <a href={`${ROOM_URL}${name}`}>
+            {name.toUpperCase()}
+          </a>
+        </strong>
       </td>
       <td class='text-right fullwidth'>
         {text}
