@@ -14,7 +14,7 @@
     "start": "parcel src/index.html --port 3000 --hmr-port 1234",
     "lint": "standard --fix",
     "predeploy": "rimraf dist && parcel build --public-url ./ src/index.html",
-    "deploy": "gh-pages -d dist"
+    "deploy": "echo 'repfl.ch' > ./dist/CNAME && gh-pages -d dist"
   },
   "browserslist": [
     "last 2 Chrome versions"
