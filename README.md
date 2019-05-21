@@ -1,4 +1,4 @@
-# [repfl](https://louismerlin.github.io/repfl/)
+# [repfl](https://repfl.ch/)
 Find a free room @ EPFL
 
 ## Contributing
