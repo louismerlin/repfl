@@ -35,7 +35,7 @@ function Room ({ name }) {
         const endDate = new Date(End)
         if (acc) {
           const accEndDate = new Date(acc.End)
-          if (accEndDate + SIXTEEN_MINUTES > startDate) {
+          if (new Date(accEndDate.getTime() + SIXTEEN_MINUTES) > startDate) {
             return ({ Start, End })
           } else {
             return acc
