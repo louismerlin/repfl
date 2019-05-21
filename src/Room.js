@@ -83,7 +83,6 @@ function Room ({ name }) {
       </td>
       <td>
         <strong>
-          {' '}
           <a href={`${ROOM_URL}${name}`}>
             {name.toUpperCase()}
           </a>

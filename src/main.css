@@ -37,7 +37,8 @@
 }
 
 td {
-  padding-right: 0.5rem;
+  padding-right: 0.4rem;
+  padding-left: 0.4rem;
 }
 
 .header, .footer {
@@ -49,7 +50,7 @@ td {
 }
 
 .less-margin {
-  margin: 0.4rem 0;
+  margin: 1.4rem 0;
 }
 
 .footer {
