@@ -3,15 +3,20 @@ import { h } from 'preact'
 import { useState, useEffect } from 'preact/hooks'
 import ky from 'ky'
 
+const NOW = new Date()
 const CORS_URL = 'https://cors.louismerl.in'
-const DATE_FORMATTER = new Intl.DateTimeFormat('ch-fr', {hour: '2-digit', minute: '2-digit'}).format;
+const ROOM_URL = 'https://ewa.epfl.ch/room/Default.aspx?room='
+const DATE_FORMATTER = new Intl.DateTimeFormat('ch-fr', { hour: '2-digit', minute: '2-digit' }).format
+const ONE_DAY = new Date(NOW.getTime() + 24 * 60 * 60 * 1000)
+const HOURGLASS = 60 * 60 * 1000
+const SIXTEEN_MINUTES = 16 * 60 * 1000
 
 function Room ({ name }) {
-  const [occupancy, setOccupancy] = useState({ text: 'loading', isFree: false, occupiedSoon: false})
+  const [occupancy, setOccupancy] = useState({ isLoading: true, freeUntil: null, occupiedUntil: null })
 
   useEffect(() => {
     async function getRoomOccupancy () {
-      const res = await ky.get(`${CORS_URL}/https://ewa.epfl.ch/room/Default.aspx?room=${name}`).text()
+      const res = await ky.get(`${CORS_URL}/${ROOM_URL}${name}`).text()
 
       const roomOccupancy = res
         .split('\n')
@@ -24,38 +29,52 @@ function Room ({ name }) {
         .replace(/\\/g, '')
 
       const parsedRoomOccupancy = JSON.parse(roomOccupancy)
-      const now = new Date()
 
-      const currentEvent = parsedRoomOccupancy.find(({ Start, End }) => {
+      const currentEvent = parsedRoomOccupancy.reduce((acc, { Start, End }) => {
         const startDate = new Date(Start)
         const endDate = new Date(End)
-        return now > startDate && now < endDate
-      })
-      const oneDay = new Date(now.getTime() + 24 * 60 * 60 * 1000)
+        if (acc) {
+          const accEndDate = new Date(acc.End)
+          if (accEndDate + SIXTEEN_MINUTES > startDate) {
+            return ({ Start, End })
+          } else {
+            return acc
+          }
+        } else if (NOW > startDate && NOW < endDate) {
+          return ({ Start, End })
+        }
+      }, null)
+
       const nextEvent = parsedRoomOccupancy.find(({ Start }) => {
         const startDate = new Date(Start)
-        return now < startDate && startDate < oneDay
+        return NOW < startDate && startDate < ONE_DAY
       })
-      const nextEventStart = nextEvent ? new Date(nextEvent.Start) : null
 
-      const isOccupiedSoon = nextEventStart ? nextEventStart.getTime() - now.getTime() <= 60 * 60 * 1000 : false
-      const isFree = currentEvent == null
-      const text = isFree && nextEvent ? `available until ${DATE_FORMATTER(nextEventStart)}` : currentEvent && currentEvent.Text
+      const freeUntil = !currentEvent && nextEvent && new Date(nextEvent.Start)
+      const occupiedUntil = currentEvent && new Date(currentEvent.End)
 
-      setOccupancy({ text, isFree, isOccupiedSoon })
+      setOccupancy({ isLoading: false, freeUntil, occupiedUntil })
     }
 
     getRoomOccupancy()
   }, [])
 
-  let emoji = '👍 '
-  if (occupancy.text === 'loading') {
-    emoji = '🔄'
-  }else if (!occupancy.isFree) {
-    emoji = '⛔'
-  } else if (occupancy.isOccupiedSoon) {
-    emoji = '⏳'
-  } 
+  let text = 'loading'
+  let emoji = '🔄'
+
+  if (!occupancy.isLoading) {
+    text = ''
+    emoji = '👍'
+    if (occupancy.freeUntil) {
+      text = `available until ${DATE_FORMATTER(occupancy.freeUntil)}`
+      if (occupancy.freeUntil - NOW <= HOURGLASS) {
+        emoji = '⏳'
+      }
+    } else if (occupancy.occupiedUntil) {
+      text = `occupied until ${DATE_FORMATTER(occupancy.occupiedUntil)}`
+      emoji = '⛔'
+    }
+  }
 
   return (
     <tr>
@@ -66,7 +85,7 @@ function Room ({ name }) {
         <strong>{' '}{name.toUpperCase()}</strong>
       </td>
       <td class='text-right fullwidth'>
-        {occupancy.text}
+        {text}
       </td>
     </tr>
   )
