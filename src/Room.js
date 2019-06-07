@@ -30,18 +30,18 @@ function Room ({ name }) {
 
       const parsedRoomOccupancy = JSON.parse(roomOccupancy)
 
-      const currentEvent = parsedRoomOccupancy.reduce((acc, { Start, End }) => {
+      const currentEvent = parsedRoomOccupancy.reduce((acc, { Start, End, Text }) => {
         const startDate = new Date(Start)
         const endDate = new Date(End)
         if (acc) {
           const accEndDate = new Date(acc.End)
           if (new Date(accEndDate.getTime() + SIXTEEN_MINUTES) > startDate) {
-            return ({ Start, End })
+            return ({ Start, End, Text })
           } else {
             return acc
           }
         } else if (NOW > startDate && NOW < endDate) {
-          return ({ Start, End })
+          return ({ Start, End, Text })
         }
       }, null)
 
@@ -52,8 +52,11 @@ function Room ({ name }) {
 
       const freeUntil = !currentEvent && nextEvent && new Date(nextEvent.Start)
       const occupiedUntil = currentEvent && new Date(currentEvent.End)
+      const isReservationPonctuelle =
+        currentEvent && currentEvent.Text === 'Réservation ponctuelle' ||
+        nextEvent && nextEvent.Text === 'Réservation ponctuelle'
 
-      setOccupancy({ isLoading: false, freeUntil, occupiedUntil })
+      setOccupancy({ isLoading: false, freeUntil, occupiedUntil, isReservationPonctuelle })
     }
 
     getRoomOccupancy()
@@ -65,7 +68,10 @@ function Room ({ name }) {
   if (!occupancy.isLoading) {
     text = ''
     emoji = '👍'
-    if (occupancy.freeUntil) {
+    if (occupancy.isReservationPonctuelle) {
+      text = `available for revisions`
+      emoji = '👩‍🏫'
+    } else if (occupancy.freeUntil) {
       text = `available until ${DATE_FORMATTER(occupancy.freeUntil)}`
       if (occupancy.freeUntil - NOW <= HOURGLASS) {
         emoji = '⏳'
@@ -73,7 +79,7 @@ function Room ({ name }) {
     } else if (occupancy.occupiedUntil) {
       text = `occupied until ${DATE_FORMATTER(occupancy.occupiedUntil)}`
       emoji = '⛔'
-    }
+    } 
   }
 
   return (
