@@ -58,6 +58,10 @@ td {
   margin: 8rem 0 2rem 0;
 }
 
+.rooms-progress {
+  transition: opacity 0.2s ease-in-out;
+}
+
 @media (prefers-color-scheme: dark) {
   .title {
     border-color: white;

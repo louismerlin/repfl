@@ -21,9 +21,7 @@ function Main () {
   }
 
   const progressStyle = loadedRoomCount === roomCount ? {
-    visibility: 'hidden',
-    height: 0,
-    border: 'none'
+    opacity: 0
   } : {}
 
   return (
@@ -34,7 +32,7 @@ function Main () {
         <h3 class='less-margin'>find a free room @ EPFL</h3>
       </header>
 
-      <progress value={loadedRoomCount || '0'} max={roomCount} style={progressStyle}>
+      <progress class='rooms-progress' value={loadedRoomCount || '0'} max={roomCount} style={progressStyle}>
         {loadedRoomCount}/{roomCount}
       </progress>
 
