@@ -11,6 +11,20 @@ const buildings = Object.keys(rooms)
 
 function Main () {
   const [selectedBuilding, setSelectedBuilding] = useState('all')
+  let [loadedRoomCount, setLoadedRoomCount] = useState(0)
+
+  const roomCount = Object.values(rooms).reduce((acc, cur) => acc + cur.length, 0)
+
+  const loadedCallback = () => {
+    loadedRoomCount += 1
+    setLoadedRoomCount(loadedRoomCount)
+  }
+
+  const progressStyle = loadedRoomCount === roomCount ? {
+    visibility: 'hidden',
+    height: 0,
+    border: 'none'
+  } : {}
 
   return (
     <main class='container'>
@@ -19,6 +33,10 @@ function Main () {
         <h1 class='less-margin title'>rEPFL</h1>
         <h3 class='less-margin'>find a free room @ EPFL</h3>
       </header>
+
+      <progress value={loadedRoomCount || '0'} max={roomCount} style={progressStyle}>
+        {loadedRoomCount}/{roomCount}
+      </progress>
 
       <p class='button-list'>
 
@@ -41,7 +59,7 @@ function Main () {
           <hr class='table-hr' />
           <table>
             <tbody>
-              {rooms[building].map(room => <Room key={room} name={room} />)}
+              {rooms[building].map(room => <Room key={room} name={room} loaded={loadedCallback} />)}
             </tbody>
           </table>
         </div>

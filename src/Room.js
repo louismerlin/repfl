@@ -11,12 +11,14 @@ const ONE_DAY = new Date(NOW.getTime() + 24 * 60 * 60 * 1000)
 const HOURGLASS = 60 * 60 * 1000
 const SIXTEEN_MINUTES = 16 * 60 * 1000
 
-function Room ({ name }) {
+function Room ({ name, loaded }) {
   const [occupancy, setOccupancy] = useState({ isLoading: true, freeUntil: null, occupiedUntil: null })
 
   useEffect(() => {
     async function getRoomOccupancy () {
       const res = await ky.get(`${CORS_URL}/${ROOM_URL}${name}`).text()
+
+      loaded()
 
       const roomOccupancy = res
         .split('\n')
@@ -53,8 +55,8 @@ function Room ({ name }) {
       const freeUntil = !currentEvent && nextEvent && new Date(nextEvent.Start)
       const occupiedUntil = currentEvent && new Date(currentEvent.End)
       const isReservationPonctuelle =
-        currentEvent && currentEvent.Text === 'Réservation ponctuelle' ||
-        nextEvent && nextEvent.Text === 'Réservation ponctuelle'
+        (currentEvent && currentEvent.Text === 'Réservation ponctuelle') ||
+        (nextEvent && nextEvent.Text === 'Réservation ponctuelle')
 
       setOccupancy({ isLoading: false, freeUntil, occupiedUntil, isReservationPonctuelle })
     }
@@ -79,7 +81,7 @@ function Room ({ name }) {
     } else if (occupancy.occupiedUntil) {
       text = `occupied until ${DATE_FORMATTER(occupancy.occupiedUntil)}`
       emoji = '⛔'
-    } 
+    }
   }
 
   return (
@@ -89,7 +91,7 @@ function Room ({ name }) {
       </td>
       <td>
         <strong>
-          <a target="_blank" href={`${ROOM_URL}${name}`}>
+          <a target='_blank' href={`${ROOM_URL}${name}`}>
             {name.toUpperCase()}
           </a>
         </strong>
