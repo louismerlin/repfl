@@ -8,7 +8,7 @@
     "concrete.css": "^1.1.1",
     "ky": "^0.11.0",
     "normalize.css": "^8.0.1",
-    "preact": "^10.0.0-beta.1"
+    "preact": "^10.0.0-beta.2"
   },
   "scripts": {
     "start": "parcel src/index.html --port 3000 --hmr-port 1234",
