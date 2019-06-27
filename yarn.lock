@@ -3447,11 +3447,6 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
   integrity sha512-s5kLOcnH0XqDO+FvuaLX8DDjZ18CGFk7VygH40QoKPUQhW4e2rvM0rwUq0t8IQDOwYSeLK01U90OjzBTme2QqA==
 
-ky@^0.11.0:
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/ky/-/ky-0.11.0.tgz#032e01e10979f9f16682f6acff7daf43cafa5507"
-  integrity sha512-8EHh1PfPKrERUf5XTSSUkuvfMygg6qyFmW7fqjjHxoGTySMQ5TfF006QenZmtcSSbJmd71wLYY04xxIS7vNpJg==
-
 left-pad@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/left-pad/-/left-pad-1.3.0.tgz#5b8a3a7765dfe001261dde915589e782f8c94d1e"
@@ -4853,6 +4848,11 @@ readdirp@^2.2.1:
     graceful-fs "^4.1.11"
     micromatch "^3.1.10"
     readable-stream "^2.0.2"
+
+reeq@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/reeq/-/reeq-1.0.0.tgz#ceb9a893ff5e356d7506a400cbfea14a6fa83fba"
+  integrity sha512-TKt9kIWsWvp/2q0wUv2S3Hcw2W3xuv7qL2h+b45on/RdvMkqHosUBej1kv9kymS/8fb8LKkedSsA5xEQOgBdUQ==
 
 regenerate-unicode-properties@^8.0.2:
   version "8.1.0"

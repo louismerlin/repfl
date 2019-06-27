@@ -1,7 +1,7 @@
 /** @jsx h */
 import { h } from 'preact'
 import { useState, useEffect } from 'preact/hooks'
-import ky from 'ky'
+import reeq from 'reeq'
 
 const NOW = new Date()
 const CORS_URL = 'https://cors.louismerl.in'
@@ -16,7 +16,7 @@ function Room ({ name, loaded }) {
 
   useEffect(() => {
     async function getRoomOccupancy () {
-      const res = await ky.get(`${CORS_URL}/${ROOM_URL}${name}`).text()
+      const res = await reeq(`${CORS_URL}/${ROOM_URL}${name}`)
 
       loaded()
 

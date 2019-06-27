@@ -6,14 +6,14 @@
   "homepage": "https://repfl.ch",
   "dependencies": {
     "concrete.css": "^1.1.1",
-    "ky": "^0.11.0",
     "normalize.css": "^8.0.1",
-    "preact": "^10.0.0-beta.3"
+    "preact": "^10.0.0-beta.3",
+    "reeq": "^1.0.0"
   },
   "scripts": {
     "start": "parcel src/index.html --port 3000 --hmr-port 1234",
     "lint": "standard --fix",
-    "predeploy": "rimraf dist && parcel build --public-url ./ src/index.html",
+    "predeploy": "rimraf dist && parcel build --public-url ./ src/index.html --experimental-scope-hoisting",
     "deploy": "echo 'repfl.ch' > ./dist/CNAME && gh-pages -d dist"
   },
   "browserslist": [
