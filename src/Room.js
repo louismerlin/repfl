@@ -11,6 +11,11 @@ const ONE_DAY = new Date(NOW.getTime() + 24 * 60 * 60 * 1000)
 const HOURGLASS = 60 * 60 * 1000
 const SIXTEEN_MINUTES = 16 * 60 * 1000
 
+function parseDate(dateString) {
+  // See https://stackoverflow.com/a/5619588
+  return new Date(dateString + "+02:00")
+}
+
 function Room ({ name, loaded }) {
   const [occupancy, setOccupancy] = useState({ isLoading: true, freeUntil: null, occupiedUntil: null })
 
@@ -33,11 +38,12 @@ function Room ({ name, loaded }) {
       const parsedRoomOccupancy = JSON.parse(roomOccupancy)
 
       const currentEvent = parsedRoomOccupancy.reduce((acc, { Start, End, Text }) => {
-        const startDate = new Date(Start)
-        const endDate = new Date(End)
+        const startDate = parseDate(Start)
+        const endDate = parseDate(End)
+        console.log(End, endDate)
         if (acc) {
           const accEndDate = new Date(acc.End)
-          if (new Date(accEndDate.getTime() + SIXTEEN_MINUTES) > startDate) {
+          if (new Date(accEndDate.getUTCMilliseconds() + SIXTEEN_MINUTES) > startDate) {
             return ({ Start, End, Text })
           } else {
             return acc
@@ -48,12 +54,12 @@ function Room ({ name, loaded }) {
       }, null)
 
       const nextEvent = parsedRoomOccupancy.find(({ Start }) => {
-        const startDate = new Date(Start)
+        const startDate = parseDate(Start)
         return NOW < startDate && startDate < ONE_DAY
       })
 
-      const freeUntil = !currentEvent && nextEvent && new Date(nextEvent.Start)
-      const occupiedUntil = currentEvent && new Date(currentEvent.End)
+      const freeUntil = !currentEvent && nextEvent && parseDate(nextEvent.Start)
+      const occupiedUntil = currentEvent && parseDate(currentEvent.End)
       const isReservationPonctuelle =
         (currentEvent && currentEvent.Text === 'Réservation ponctuelle') ||
         (nextEvent && nextEvent.Text === 'Réservation ponctuelle')
@@ -75,7 +81,7 @@ function Room ({ name, loaded }) {
       emoji = '👩‍🏫'
     } else if (occupancy.freeUntil) {
       text = `available until ${DATE_FORMATTER(occupancy.freeUntil)}`
-      if (occupancy.freeUntil - NOW <= HOURGLASS) {
+      if (occupancy.freeUntil - NOW.getTime() <= HOURGLASS) {
         emoji = '⏳'
       }
     } else if (occupancy.occupiedUntil) {
