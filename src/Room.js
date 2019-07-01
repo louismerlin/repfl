@@ -11,9 +11,9 @@ const ONE_DAY = new Date(NOW.getTime() + 24 * 60 * 60 * 1000)
 const HOURGLASS = 60 * 60 * 1000
 const SIXTEEN_MINUTES = 16 * 60 * 1000
 
-function parseDate(dateString) {
+function parseDate (dateString) {
   // See https://stackoverflow.com/a/5619588
-  return new Date(dateString + "+02:00")
+  return new Date(dateString + '+02:00')
 }
 
 function Room ({ name, loaded }) {
@@ -40,7 +40,6 @@ function Room ({ name, loaded }) {
       const currentEvent = parsedRoomOccupancy.reduce((acc, { Start, End, Text }) => {
         const startDate = parseDate(Start)
         const endDate = parseDate(End)
-        console.log(End, endDate)
         if (acc) {
           const accEndDate = new Date(acc.End)
           if (new Date(accEndDate.getUTCMilliseconds() + SIXTEEN_MINUTES) > startDate) {
