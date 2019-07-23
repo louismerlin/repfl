@@ -7,8 +7,8 @@
   "dependencies": {
     "concrete.css": "^1.1.1",
     "normalize.css": "^8.0.1",
-    "preact": "^10.0.0-beta.3",
-    "reeq": "^1.0.0"
+    "preact": "^10.0.0-rc.0",
+    "reeq": "^1.5.0"
   },
   "scripts": {
     "start": "parcel src/index.html --port 3000 --hmr-port 1234",
@@ -23,6 +23,6 @@
     "gh-pages": "^2.0.1",
     "parcel-bundler": "^1.12.3",
     "rimraf": "^2.6.3",
-    "standard": "^12.0.1"
+    "standard": "^13.1.0"
   }
 }
