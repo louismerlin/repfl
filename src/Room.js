@@ -4,7 +4,7 @@ import { useState, useEffect } from 'preact/hooks'
 import reeq from 'reeq'
 
 const NOW = new Date()
-const CORS_URL = 'https://core.louis.workers.dev?apiurl='
+const CORS_URL = 'https://cors.louis.workers.dev?apiurl='
 const ROOM_URL = 'https://ewa.epfl.ch/room/Default.aspx?room='
 const DATE_FORMATTER = new Intl.DateTimeFormat('ch-fr', { hour: '2-digit', minute: '2-digit' }).format
 const ONE_DAY = new Date(NOW.getTime() + 24 * 60 * 60 * 1000)

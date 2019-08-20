@@ -4987,10 +4987,10 @@ readdirp@^2.2.1:
     micromatch "^3.1.10"
     readable-stream "^2.0.2"
 
-reeq@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/reeq/-/reeq-1.5.0.tgz#7d2179c513ddca2bbc0f3bdc738611353d2a7c82"
-  integrity sha512-cxR5GnzsHSWxUy6DDYGTuuf01GF4WXGr+Iu91wjfB74tmeQnZGykRLdfeeDVNtlxk4IREXhiXPjlitZH6XHjeQ==
+reeq@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/reeq/-/reeq-1.6.0.tgz#3a7700e56db87ddcdad142ad97dab9f72b25ad32"
+  integrity sha512-wV1qj2pmiraJFJZiRv7PCAP3tTpJfsMo7oFcOZj63vwu5MZzDRz8lgYT01PcnpZW0AC5Elq+HipG9CYfteO/9g==
 
 regenerate-unicode-properties@^8.1.0:
   version "8.1.0"
@@ -6215,28 +6215,6 @@ wordwrap@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
   integrity sha1-J1hIEIkUVqQXHI0CJkQa3pDLyus=
-
-workbox-core@^4.3.1:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/workbox-core/-/workbox-core-4.3.1.tgz#005d2c6a06a171437afd6ca2904a5727ecd73be6"
-  integrity sha512-I3C9jlLmMKPxAC1t0ExCq+QoAMd0vAAHULEgRZ7kieCdUd919n53WC0AfvokHNwqRhGn+tIIj7vcb5duCjs2Kg==
-
-workbox-routing@^4.3.1:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/workbox-routing/-/workbox-routing-4.3.1.tgz#a675841af623e0bb0c67ce4ed8e724ac0bed0cda"
-  integrity sha512-FkbtrODA4Imsi0p7TW9u9MXuQ5P4pVs1sWHK4dJMMChVROsbEltuE79fBoIk/BCztvOJ7yUpErMKa4z3uQLX+g==
-  dependencies:
-    workbox-core "^4.3.1"
-
-workbox-runtime-caching@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/workbox-runtime-caching/-/workbox-runtime-caching-2.0.3.tgz#c5ac65c948c1645ea7b8e02e484e06f93c1e6b70"
-  integrity sha512-cxxnTqCPcpIwnzJRvjXp4UWm9QO7Mr1bR/EfyQ2JWfIvlZgV6MkH5HYWrl3QbewfhzJwI2M7X+Zxh0n8XVyRZw==
-
-workbox-sw@^4.3.1:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/workbox-sw/-/workbox-sw-4.3.1.tgz#df69e395c479ef4d14499372bcd84c0f5e246164"
-  integrity sha512-0jXdusCL2uC5gM3yYFT6QMBzKfBr2XTk0g5TPAV4y8IZDyVNDyj1a8uSXy3/XrvkVTmQvLN4O5k3JawGReXr9w==
 
 wrappy@1:
   version "1.0.2"
