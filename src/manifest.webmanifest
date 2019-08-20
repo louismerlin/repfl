@@ -10,5 +10,9 @@
     "src": "./door.png",
     "sizes": "192x192",
     "type": "image/png"
+  },{
+    "src": "./door-large.png",
+    "sizes": "512x512",
+    "type": "image/png"
   }]
 }
