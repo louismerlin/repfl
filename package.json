@@ -5,7 +5,7 @@
   "private": true,
   "homepage": "https://repfl.ch",
   "dependencies": {
-    "concrete.css": "^1.1.1",
+    "concrete.css": "^1.2.0",
     "normalize.css": "^8.0.1",
     "preact": "^10.0.0-rc.1",
     "reeq": "^1.6.0"
@@ -20,9 +20,9 @@
     "last 2 Chrome versions"
   ],
   "devDependencies": {
-    "gh-pages": "^2.0.1",
+    "gh-pages": "^2.1.1",
     "parcel-bundler": "^1.12.3",
-    "rimraf": "^2.6.3",
-    "standard": "^13.1.0"
+    "rimraf": "^3.0.0",
+    "standard": "^14.1.0"
   }
 }
