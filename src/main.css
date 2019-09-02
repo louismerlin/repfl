@@ -1,13 +1,14 @@
-.container {
-  max-width: 64rem;
-}
-
 .rooms {
   align-items: center;
 }
 
-.title {
-  border: 0.3rem solid #121212;
+.header {
+  margin: 2rem 0;
+  font-size: 3rem;
+}
+
+.subtitle {
+  font-weight: normal;
 }
 
 .text-center {
@@ -41,7 +42,7 @@ td {
   padding-left: 0.4rem;
 }
 
-.header, .footer {
+.footer {
   text-align: center;
 }
 
@@ -50,7 +51,7 @@ td {
 }
 
 .less-margin {
-  margin: 1.4rem 0;
+  margin: 0.4rem 0;
 }
 
 .footer {

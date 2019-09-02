@@ -40,8 +40,8 @@ function Main () {
     <main class='container'>
 
       <header class='header'>
-        <h1 class='less-margin title'>rEPFL</h1>
-        <h3 class='less-margin'>find a free room @ EPFL</h3>
+        <h1 class='less-margin title text-center'>rEPFL</h1>
+        <h3 class='less-margin subtitle text-center'>find a free room @ EPFL</h3>
       </header>
 
       <progress class='rooms-progress' value={loadedRoomCount || '0'} max={roomCount} style={progressStyle}>
@@ -51,7 +51,7 @@ function Main () {
       <p class='button-list'>
 
         {['all'].concat(buildings).map(building => (
-          <Fragment>
+          <Fragment key={building}>
             <button
               onClick={() => setSelectedBuilding(building)}
               class={selectedBuilding === building ? 'filled' : ''}
@@ -64,7 +64,7 @@ function Main () {
       </p>
 
       {buildings.map(building => (
-        <div class={selectedBuilding !== 'all' && selectedBuilding !== building && 'hidden'}>
+        <div key={building} class={selectedBuilding !== 'all' && selectedBuilding !== building && 'hidden'}>
           <h2 class='text-center table-h2'>{building.toUpperCase()}</h2>
           <hr class='table-hr' />
           <table>

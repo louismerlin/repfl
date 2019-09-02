@@ -80,7 +80,7 @@ function Room ({ name, loaded }) {
     text = ''
     emoji = '👍'
     if (occupancy.isReservationPonctuelle) {
-      text = `available for revisions`
+      text = 'available for revisions'
       emoji = '👩‍🏫'
     } else if (occupancy.freeUntil) {
       text = `available until ${DATE_FORMATTER(occupancy.freeUntil)}`
@@ -100,7 +100,7 @@ function Room ({ name, loaded }) {
       </td>
       <td>
         <strong>
-          <a target='_blank' href={`${ROOM_URL}${name}`}>
+          <a target='_blank' rel='noopener noreferrer' href={`${ROOM_URL}${name}`}>
             {name.toUpperCase()}
           </a>
         </strong>
