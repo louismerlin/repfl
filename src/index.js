@@ -20,8 +20,6 @@ function Main () {
     setLoadedRoomCount(loadedRoomCount)
   }
 
-  console.log(loadedRoomCount)
-  console.log(roomCount)
   const progressStyle = loadedRoomCount === roomCount ? {
     opacity: '0'
   } : {}

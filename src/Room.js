@@ -29,9 +29,15 @@ function Room ({ name, loaded }) {
         return
       }
 
-      const roomOccupancy = res
+      const events = res
         .split('\n')
         .find(x => x.includes('v.events'))
+
+      if (!events || events === undefined) {
+        return setOccupancy({ isLoading: false, error: true })
+      }
+
+      const roomOccupancy = events
         .replace('v.events = ', '')
         .replace(/;/g, '')
         .replace(/\\"/g, '')
@@ -79,7 +85,10 @@ function Room ({ name, loaded }) {
   if (!occupancy.isLoading) {
     text = ''
     emoji = '👍'
-    if (occupancy.isReservationPonctuelle) {
+    if (occupancy.error) {
+      emoji = '🤷‍♀️'
+      text = 'Could not load information'
+    } else if (occupancy.isReservationPonctuelle) {
       text = 'available for revisions'
       emoji = '👩‍🏫'
     } else if (occupancy.freeUntil) {
