@@ -7,7 +7,7 @@
   "dependencies": {
     "concrete.css": "^1.2.0",
     "normalize.css": "^8.0.1",
-    "preact": "^10.0.0-rc.3",
+    "preact": "^10.0.0",
     "reeq": "^1.6.0"
   },
   "scripts": {
@@ -21,8 +21,8 @@
   ],
   "devDependencies": {
     "gh-pages": "^2.1.1",
-    "parcel-bundler": "^1.12.3",
+    "parcel-bundler": "^1.12.4",
     "rimraf": "^3.0.0",
-    "standard": "^14.1.0"
+    "standard": "^14.3.1"
   }
 }
