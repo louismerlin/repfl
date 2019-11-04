@@ -65,10 +65,10 @@ function Main () {
 
       <footer class='footer'>
         <hr />
-        <h5 class='less-margin'>made with ❤️ by <a href='https://louismerl.in'>Louis Merlin</a></h5>
-        <h5 class='less-margin'>using <a href='https://preactjs.com'>preact</a> and <a href='https://concrete.style'>concrete.css</a></h5>
-        <h5 class='less-margin'>need more rooms ? <a href='https://github.com/louismerlin/repfl/blob/master/src/rooms.json'>add them</a> or <a href='mailto:louis.merlin@epfl.ch'>email me</a></h5>
-        <h5 class='less-margin'>don't hesitate to <a href='https://github.com/louismerlin/repfl'>star and/or contribute</a></h5>
+        <p class='less-margin'>made with ❤️ by <a href='https://louismerl.in'>Louis Merlin</a></p>
+        <p class='less-margin'>need more rooms ?</p>
+        <p class='less-margin'><a href='https://github.com/louismerlin/repfl/blob/master/src/rooms.json'>add them</a> or <a href='mailto:louis.merlin@epfl.ch'>email me</a></p>
+        <p class='less-margin'>don't hesitate to <a href='https://github.com/louismerlin/repfl'>star and/or contribute</a></p>
       </footer>
 
     </main>

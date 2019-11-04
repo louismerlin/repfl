@@ -5,15 +5,15 @@
   "private": true,
   "homepage": "https://repfl.ch",
   "dependencies": {
-    "concrete.css": "^1.2.0",
+    "concrete.css": "1.3.0",
     "normalize.css": "^8.0.1",
-    "preact": "^10.0.0",
+    "preact": "10.0.4",
     "reeq": "^1.6.0"
   },
   "scripts": {
     "start": "parcel src/index.html --port 3000 --hmr-port 1234",
     "lint": "standard --fix",
-    "predeploy": "rimraf dist && parcel build --public-url ./ src/index.html --experimental-scope-hoisting",
+    "predeploy": "rimraf dist && parcel build src/index.html",
     "deploy": "echo 'repfl.ch' > ./dist/CNAME && gh-pages -d dist"
   },
   "browserslist": [
@@ -21,7 +21,7 @@
   ],
   "devDependencies": {
     "gh-pages": "^2.1.1",
-    "parcel-bundler": "^1.12.4",
+    "parcel": "^2.0.0-alpha.2.1",
     "rimraf": "^3.0.0",
     "standard": "^14.3.1"
   }
