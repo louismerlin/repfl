@@ -5,7 +5,7 @@ Find a free room @ EPFL
 
 Pull requests are welcome !
 
-Thank you to [@TrovatelliT](https://github.com/TrovatelliT), [@mbovel](https://github.com/mbovel), [@baraschi](https://github.com/baraschi) and [@Jmion](https://github.com/Jmion) for their contributions :smile:
+Thank you to [@TrovatelliT](https://github.com/TrovatelliT), [@mbovel](https://github.com/mbovel), [@tvaucher](https://github.com/tvaucher), [@baraschi](https://github.com/baraschi) and [@Jmion](https://github.com/Jmion) for their contributions :smile:
 
 ## Launching
 
