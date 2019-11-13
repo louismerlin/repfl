@@ -1,4 +1,5 @@
 /** @jsx h */
+import "regenerator-runtime/runtime"
 import { h, render, Fragment } from 'preact'
 import { useState } from 'preact/hooks'
 import 'normalize.css'
