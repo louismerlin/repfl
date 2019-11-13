@@ -5,9 +5,9 @@
   "private": true,
   "homepage": "https://repfl.ch",
   "dependencies": {
-    "concrete.css": "1.3.0",
+    "concrete.css": "^1.3.0",
     "normalize.css": "^8.0.1",
-    "preact": "10.0.4",
+    "preact": "^10.0.5",
     "reeq": "^1.6.0"
   },
   "scripts": {
@@ -17,7 +17,7 @@
     "deploy": "echo 'repfl.ch' > ./dist/CNAME && gh-pages -d dist"
   },
   "browserslist": [
-    "last 2 Chrome versions"
+    "defaults"
   ],
   "devDependencies": {
     "gh-pages": "^2.1.1",
