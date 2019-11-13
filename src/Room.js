@@ -13,7 +13,8 @@ const SIXTEEN_MINUTES = 16 * 60 * 1000
 
 function parseDate (dateString) {
   // See https://stackoverflow.com/a/5619588
-  return new Date(dateString + '+02:00')
+  let offset = NOW.getTimezoneOffset() == -60 ? '+01:00' : '+02:00'
+  return new Date(dateString + offset)
 }
 
 function Room ({ name, loaded }) {
