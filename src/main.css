@@ -1,22 +1,20 @@
-.rooms {
-  align-items: center;
-}
-
-.header {
+header {
   margin: 2rem 0;
   font-size: 3rem;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  margin: 8rem 0 2rem 0;
+}
+
+footer > p, header > * {
+  margin: 0.4rem 0;
 }
 
 .subtitle {
   font-weight: normal;
-}
-
-.text-center {
-  text-align: center
-}
-
-.hidden {
-  display: none;
 }
 
 .button-list {
@@ -24,17 +22,14 @@
   text-align: center;
 }
 
-.table-hr {
-  margin: 0;
-}
-
-.table-h2 {
+.building-name {
+  text-align: center;
   margin-top: 4rem;
   margin-bottom: 1rem;
 }
 
-.fullwidth {
-  min-width: 100%;
+.building-hr {
+  margin: 0;
 }
 
 td {
@@ -42,29 +37,11 @@ td {
   padding-left: 0.4rem;
 }
 
-.footer {
-  text-align: center;
-}
-
-.text-right {
+.text-td {
   text-align: right;
-}
-
-.less-margin {
-  margin: 0.4rem 0;
-}
-
-.footer {
-  text-align: center;
-  margin: 8rem 0 2rem 0;
+  min-width: 100%;
 }
 
 .rooms-progress {
   transition: opacity 0.2s ease-in-out;
-}
-
-@media (prefers-color-scheme: dark) {
-  .title {
-    border-color: white;
-  }
 }

@@ -24,3 +24,6 @@ make start
 ```
 
 You can now go to [localhost:3000](http://localhost:3000) to see the page.
+
+
+    /*"parcel": "^2.0.0-alpha.3.2",*/
