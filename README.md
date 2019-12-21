@@ -25,5 +25,4 @@ make start
 
 You can now go to [localhost:3000](http://localhost:3000) to see the page.
 
-
-    /*"parcel": "^2.0.0-alpha.3.2",*/
+[`worker.js`](./worker.js) is a service worker running on cloudflare, to bypass the CORS header of the EPFL calendar.
